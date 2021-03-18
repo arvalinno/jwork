@@ -13,45 +13,88 @@ public class Jobseeker
     private String email;
     private String password;
     private String joinDate;
+    private Jobseeker jobseeker;
     
-
-    /**
-     * Constructor for objects of class Jobseeker
-     */
-    public Jobseeker()
+/**
+ * Constructor dari Class Jobseeker
+ * @param id id dari Jobseeker
+ * @param name nama dari Jobseeker
+ * @param email email dari Jobseeker
+ * @param password dari Jobseeker
+ * @param joinDate tanggal masuk Jobseeker
+ */
+    public Jobseeker(int id, String name, String email, String password, String joinDate)
     {
-        // initialise instance variables
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.joinDate = joinDate;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public static int getId(){
-        return 0;
+/**
+ * method mengembalikan id
+ * @return int
+ */
+    public int getId(){
+        return id;
     }
-    public static String getName(){
-        return "oop";
+/**
+ * method mengembalikan nama
+ * @return String
+ */
+    public String getName(){
+        return name;
     }
-    public static String getEmail(){
-        return "oop";
+/**
+ * method mengembalikan email
+ * @return String
+ */
+    public String getEmail(){
+        return email;
     }
-    public static String getPassword(){
-        return "oop";
+/**
+ * method mengembalikan password
+ * @return String
+ */
+    public String getPassword(){
+        return password;
     }
-     public static String joinDate(){
-        return "oop";
+/**
+ * method mengembalikan joinDate
+ * @return String
+ */
+     public String joinDate(){
+        return joinDate;
     }
-    public static void setId(int id){
+/**
+ * method mengganti id
+ * @return void
+ */
+    public void setId(int id){
+        this.id = id;
     }
-    public static void setName(String Name){
+/**
+ * method mengganti nama
+ * @return void
+ */
+    public void setName(String Name){
+        this.name = name;
     }
-    public static void setEmail(String email){
+/**
+ * method mengganti nama
+ * @return void
+ */
+    public void setEmail(String email){
+        this.email = email;
     }
-    public static void setPassword(String password){
+    public void setPassword(String password){
+        this.password = password;
     }
-    public static void setJoinDate(String joinDate){
+    public void setJoinDate(String joinDate){
+        this.joinDate = joinDate;
+    }
+    public void printData(){
+        System.out.println(this.name);
     }
 }

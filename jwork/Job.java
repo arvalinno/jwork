@@ -1,64 +1,125 @@
 
 /**
- * Write a description of class Job here.
+ * class buat Job
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Arvalinno
+ * @version 18.03.2021
  */
 public class Job
 {
-    // instance variables - replace the example below with your own
     private int id;
     private String name;
     private int fee;
     private String category;
-
+    private Recruiter recruiter;
+    
     /**
-     * Constructor for objects of class Job
-     */
-    public Job()
+    * Constructor dari Class Job
+    * @param id id dari Job
+    * @param name nama dari Job
+    * @param recruiter untuk objek recruiter
+    * @param fee untuk biaya
+    * @param category untuk kategori pekerjaan
+    */
+    public Job(int id, String name, Recruiter recruiter, int fee, String category)
     {
-        // initialise instance variables
+        this.id = id;
+        this.recruiter = recruiter;
+        this.name = name;
+        this.fee = fee;
+        this.category = category;
     }
-
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public static int getId()
+    * method mengembalikan id
+    * @return int
+    */
+    public int getId()
     {
-        return 0;
+        return id;
     }
-    public static String getName()
+    /**
+    * method mengembalikan nama
+    * @return String
+    */
+    public String getName()
     {
-        return "oop";
+        return name;
     }
-    public static int getFee()
+    /**
+    * method mengembalikan fee
+    * @return int
+    */
+    public int getFee()
     {
-        return 0;
+        return fee;
     }
-    public static String getCategory()
+    /**
+    * method mengembalikan nilai kategori
+    * @return String
+    */
+    public String getCategory()
     {
-        return "oop";
+        return category;
     }
-    public static void setId(int id)
+    /**
+    * method mengembalikan nilai kategori
+    * @return String
+    */
+    public Recruiter getRecruiter()
     {
-       
+        return recruiter;
     }
-    public static void setName(String name)
+    /**
+    * method mengganti id
+    * @param id
+    * @return void
+    */
+    public void setId(int id)
     {
-       
+       this.id = id;
     }
-    public static void setFee(int fee)
+    /**
+    * method mengganti name
+    * @param name
+    * @return void
+    */
+    public void setName(String name)
     {
-       
+       this.name = name;
     }
-    public static void setCategory(String category)
+    /**
+    * method mengganti recruiter
+    * @param recruiter
+    * @return void
+    */
+    public void setRecruiter(Recruiter recruiter)
+    {
+       this.recruiter = recruiter;
+    }
+    /**
+    * method mengganti fee
+    * @param fee
+    * @return void
+    */
+    public void setFee(int fee)
+    {
+        this.fee = fee;
+    }
+    /**
+    * method mengganti kategori job
+    * @param kategori
+    * @return void
+    */
+    public void setCategory(String category)
+    {
+        this.category = category;
+    }
+    /**
+    * method mencetak data
+    * @return void
+    */
+    public void printData()
     {
         
     }
-    
-    
 }

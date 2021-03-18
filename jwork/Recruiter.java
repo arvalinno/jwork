@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class Recruiter here.
+ * Kelas Recruiter
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Arvalinno
+ * @version 18.03.2021
  */
 public class Recruiter
 {
@@ -11,45 +11,63 @@ public class Recruiter
     private int id;
     private String name;
     private String email;
-    private String password;
-    private String joinDate;
+    private String phoneNumber;
+    private Location location;
 
-    public Recruiter()
+    public Recruiter(int id, String name, String email, String phoneNumber, Location location)
     {
-        // initialise instance variables
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.location = location;
     }
 
-    public static int getId()
+    public int getId()
     {
-        return 0;
+        return id;
     }
     
-        public static String getName()
+        public String getName()
     {
-        return "oop";
+        return name;
     }
     
-        
-    public static String getEmail()
+    public String getEmail()
     {
-        return "oop";
+        return email;
     }
-     public static String getPhoneNumber()
+     public String getPhoneNumber()
     {
-        return "oop";
+        return phoneNumber;
     }
-    public static void setId(int id)
+    
+    public Location getLocation(){
+        return location;
+    }
+    
+    public void setId(int id){
+        this.id = id;
+    }
+    public void setEmail(String Email)
     {
+        this.email = email;
     }
-    public static void setEmail(String Email)
+    public void setName(String Name)
     {
+        this.name = name;
     }
-    public static void setName(String Name)
+    public void setPhoneNumber(String phoneNumber){
+        this.location = location;
+    }
+    
+    public void setLocation(Location location)
     {
+        this.location = location;
     }
-    public static void setPhoneNumber(String phoneNumber)
-    {
+    
+    public void printData(){
+        System.out.println(this.name);
     }
-
 }
 
