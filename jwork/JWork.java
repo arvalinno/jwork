@@ -10,7 +10,7 @@ public class JWork
     public JWork(){
     }
     
-    public void main(String args[]){  
+    public static void main(String args[]){  
         Location Medan = new Location("Sumatera Utara", "Medan", "tempat lahir");
         Recruiter recruiter1 = new Recruiter(1, "Arvalinno", "arvalinno@gmail.com", "082288885625", Medan);
         Job job1 = new Job(1, "Sales", recruiter1, 5000000, "Marketing");
