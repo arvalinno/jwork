@@ -36,7 +36,7 @@ public class DatabaseJob {
      * @param job
      * @return boolean
      */
-    public boolean remove(Job job){
+    public boolean removeJob(Job job){
         return false;
     }
     

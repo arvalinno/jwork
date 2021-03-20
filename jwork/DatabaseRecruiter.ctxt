@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=DatabaseRecruiter
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ DatabaseRecruiter\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=DatabaseRecruiter()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ DatabaseRecruiter\r\n
+comment2.params=listRecruiter
+comment2.target=DatabaseRecruiter(java.lang.String[])
+comment2.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\r\n\ @param\ \ y\ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ the\ sum\ of\ x\ and\ y\r\n
+comment3.params=recruiter
+comment3.target=boolean\ addRecuiter(Recruiter)
+comment3.text=\r\n\ method\ menambahkan\ recruiter\r\n\ @param\ recruiter\r\n\ @return\ boolean\r\n
+comment4.params=recruiter
+comment4.target=boolean\ removeRecruiter(Recruiter)
+comment4.text=\r\n\ method\ menghapus\ recruiter\r\n\ @param\ recruiter\r\n\ @return\ boolean\r\n
+comment5.params=
+comment5.target=Job\ getRecruiter()
+comment5.text=\r\n\ method\ mendapatkan\ recuiter\r\n\ @return\ null\r\n
+comment6.params=
+comment6.target=java.lang.String[]\ getListRecruiter()
+comment6.text=\r\n\ method\ mendapatkan\ listrecuiter\r\n\ @return\ String[]\r\n
+numComments=7

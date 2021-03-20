@@ -126,7 +126,7 @@ public class Invoice
      * @return void
      */
     public void printData(){
-        
+        System.out.println(this.totalFee);
     }
 }
 
