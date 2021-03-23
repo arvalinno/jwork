@@ -12,13 +12,6 @@ public class DatabaseJob {
     * constructor kelas DatabaseJob
     * 
     */
-    public DatabaseJob(){
-       listJob = new String[100];
-    }
-    /**
-    * constructor kelas DatabaseJob
-    * @param listJob sebagai string
-    */
     public DatabaseJob(String[] listJob){
         this.listJob = listJob;
     }

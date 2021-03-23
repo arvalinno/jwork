@@ -2,14 +2,22 @@
 /**
  * Write a description of class JWork here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Arvalinno
+ * @version 23.03.2021
  */
 public class JWork
-{    
+{   
+    /**
+    * constructor kelas JWork
+    * 
+    */
     public JWork(){
     }
-    
+    /**
+     * method main
+     * @param args[]
+     * @return void
+     */
     public static void main(String args[]){  
         Location Medan = new Location("Sumatera Utara", "Medan", "tempat lahir");
         Recruiter recruiter1 = new Recruiter(1, "Arvalinno", "arvalinno@gmail.com", "082288885625", Medan);

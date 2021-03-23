@@ -2,8 +2,8 @@
 /**
  * Write a description of class Jobseeker here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Arvalinno
+ * @version 23.03.2021
  */
 public class Jobseeker
 {
@@ -78,7 +78,7 @@ public class Jobseeker
  * method mengganti nama
  * @return void
  */
-    public void setName(String Name){
+    public void setName(String name){
         this.name = name;
     }
 /**

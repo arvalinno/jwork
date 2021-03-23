@@ -2,28 +2,17 @@
 /**
  * Write a description of class DatabaseRecruiter here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Arvalinno
+ * @version 23.03.2021
  */
 public class DatabaseRecruiter
 {
-    // instance variables - replace the example below with your own
     private String[] listRecruiter;
 
     /**
-     * Constructor for objects of class DatabaseRecruiter
+     * Constructor untuk objek pada kelas DatabaseRecruiter
      */
-    public DatabaseRecruiter()
-    {
-        listRecruiter = new String[100];
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
+    
     public DatabaseRecruiter(String[] listRecruiter){
         this.listRecruiter = listRecruiter;
     }
