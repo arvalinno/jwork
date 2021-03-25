@@ -7,21 +7,14 @@
  */
 public class DatabaseRecruiter
 {
-    private String[] listRecruiter;
+    private static String[] listRecruiter;
 
-    /**
-     * Constructor untuk objek pada kelas DatabaseRecruiter
-     */
-    
-    public DatabaseRecruiter(String[] listRecruiter){
-        this.listRecruiter = listRecruiter;
-    }
     /**
      * method menambahkan recruiter
      * @param recruiter
      * @return boolean
      */
-    public boolean addRecuiter(Recruiter recruiter){
+    public static boolean addRecruiter(Recruiter recruiter){
         return false;
     }
     
@@ -30,7 +23,7 @@ public class DatabaseRecruiter
      * @param recruiter
      * @return boolean
      */
-    public boolean removeRecruiter(Recruiter recruiter){
+    public static boolean removeRecruiter(Recruiter recruiter){
         return false;
     }
     
@@ -38,14 +31,14 @@ public class DatabaseRecruiter
      * method mendapatkan recuiter
      * @return null
      */
-    public Job getRecruiter(){
+    public static Recruiter getRecruiter(){
         return null;
     }
     /**
      * method mendapatkan listrecuiter
      * @return String[]
      */
-    public String[] getListRecruiter(){
+    public static String[] getListRecruiter(){
         return listRecruiter;
     }
     

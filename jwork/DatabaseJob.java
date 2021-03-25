@@ -6,21 +6,14 @@
  * @version 18.03.2021
  */
 public class DatabaseJob {
-    private String[] listJob;
+    private static String[] listJob;
     
-    /**
-    * constructor kelas DatabaseJob
-    * 
-    */
-    public DatabaseJob(String[] listJob){
-        this.listJob = listJob;
-    }
     /**
      * method menambahkan job
      * @param job
      * @return boolean
      */
-    public boolean addJob(Job job){
+    public static boolean addJob(Job job){
         return false;
     }
     
@@ -29,7 +22,7 @@ public class DatabaseJob {
      * @param job
      * @return boolean
      */
-    public boolean removeJob(Job job){
+    public static boolean removeJob(Job job){
         return false;
     }
     
@@ -37,14 +30,14 @@ public class DatabaseJob {
      * method mendapatkan job
      * @return Job
      */
-    public Job getJob(){
+    public static Job getJob(){
         return null;
     }
     /**
      * method mendapatkan listjob
      * @return String[]
      */
-    public String[] getListJob(){
+    public static String[] getListJob(){
         return listJob;
     }
 }
