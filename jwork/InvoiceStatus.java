@@ -20,13 +20,4 @@ public enum InvoiceStatus
         return invoicestatus;
     }
 
-    public static void main(String[] args) {
-        InvoiceStatus invoicestatus1 = InvoiceStatus.OnGoing;
-        InvoiceStatus invoicestatus2 = InvoiceStatus.Finished;
-        InvoiceStatus invoicestatus3 = InvoiceStatus.Cancelled;
-        
-        System.out.println(invoicestatus1);
-        System.out.println(invoicestatus2);
-        System.out.println(invoicestatus3);
-    }
 }

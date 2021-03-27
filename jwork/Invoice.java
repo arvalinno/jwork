@@ -25,7 +25,7 @@ public class Invoice
      * @param totalFee total biaya
      * @param jobseeker objek jobseeker yang ada
      */
-    public Invoice(int id, int idJob, String date, int totalFee, Jobseeker jobseeker, PaymentType paymentType, InvoiceStatus invoiceStatus){
+    public Invoice(int id, int idJob, String date, int totalFee, Jobseeker jobseeker, PaymentType paymentType, InvoiceStatus status){
         this.id = id;
         this.idJob = idJob;
         this.date = date;
