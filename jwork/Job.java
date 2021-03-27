@@ -120,7 +120,7 @@ public class Job
     */
     public void printData()
     {
-         System.out.println("===================== JOB =====================");
+        System.out.println("===================== JOB =====================");
         System.out.println("ID: " +getId());
         System.out.println("Name: "+getName());
         System.out.println("Recruiter: " +recruiter.getName());
