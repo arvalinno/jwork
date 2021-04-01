@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=DatabaseBonus
+comment0.text=\r\n\ kelas\ DatabaseBonus\r\n\r\n\ @author\ Arvalinno\r\n\ @version\ 01.04.2021\r\n
+comment1.params=bonus
+comment1.target=boolean\ addBonus(Bonus)
+comment1.text=\r\n\ method\ menambahkan\ bonus\r\n\ @param\ bonus\r\n\ @return\ boolean\r\n
+comment2.params=bonus
+comment2.target=boolean\ removeBonus(Bonus)
+comment2.text=\r\n\ method\ menghapus\ bonus\r\n\ @param\ bonus\r\n\ @return\ boolean\r\n
+comment3.params=
+comment3.target=Bonus\ getBonus()
+comment3.text=\r\n\ method\ mendapatkan\ job\r\n\ @return\ Job\r\n
+comment4.params=
+comment4.target=java.lang.String[]\ getListBonus()
+comment4.text=\r\n\ method\ mendapatkan\ listjob\r\n\ @return\ String[]\r\n
+numComments=5

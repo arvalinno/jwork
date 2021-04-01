@@ -22,17 +22,17 @@ public class JWork
         Location Medan = new Location("Sumatera Utara", "Medan", "tempat lahir");
         Recruiter recruiter1 = new Recruiter(1, "Arvalinno", "arvalinno@gmail.com", "082288885625", Medan);
         Job job1 = new Job(1, "Junior Data Analyst", recruiter1, 5000000, JobCategory.DataAnalyst);
-        
         Jobseeker jobseeker1 = new Jobseeker(1, "Tony", "Tony@gmail.com", "password", "27/3/2021");
-
-        Invoice invoice1 = new Invoice(1, job1.getId(), "27/3/2021", job1.getFee(), jobseeker1, PaymentType.EwalletPayment, InvoiceStatus.OnGoing);
-
-        invoice1.printData();
         
-        //job1.printData();
+        Bonus bonusA = new Bonus(7, "OOPASIK", 5000000, 4500000, true);
+        Bonus bonusB = new Bonus(8, "ASIKNIH", 7000000, 6500000, true);
         
+        EwalletPayment payment1 = new EwalletPayment(1, job1, "28 Maret 2021", jobseeker1, InvoiceStatus.OnGoing);
+        EwalletPayment payment2 = new EwalletPayment(2, job1, "31 Maret 2021", jobseeker1, bonusA, InvoiceStatus.Finished);
+        EwalletPayment payment3 = new EwalletPayment(3, job1, "01 April 2021", jobseeker1, bonusB, InvoiceStatus.OnGoing);
            
-        //InvoiceStatus invoceStatus2 = InvoiceStatus.sembarang;
-        
+        payment1.printData();
+        payment2.printData();
+        payment3.printData();
     }
 }
