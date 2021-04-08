@@ -118,14 +118,10 @@ public class Job
     * method mencetak data
     * @return void
     */
-    public void printData()
-    {
-        System.out.println("===================== JOB =====================");
-        System.out.println("ID: " +getId());
-        System.out.println("Name: "+getName());
-        System.out.println("Recruiter: " +recruiter.getName());
-        System.out.println("City: " +recruiter.getLocation().getCity());
-        System.out.println("Fee: " +getFee());
-        System.out.println("Category: " +getCategory());
+    @Override
+    public String toString() {
+        return "Id = " + getId() + "\nName = " + getName() + "\nRecruiter = "
+                + getRecruiter() + "\nCity= " + getRecruiter().getLocation().getCity()
+                + "\nFee = " + getFee() + "\nCategory = " + getCategory();
     }
 }

@@ -110,8 +110,12 @@ public class Recruiter
     * method mencetak data yaitu nama
     * @return void
     */
-    public void printData(){
-        System.out.println(this.name);
+    @Override
+    public String toString() {
+        return "Id = " + getId() + "\nNama = " + getName() + "\nEmail = "
+                + getEmail() + "\nPhone Number = "
+                + getPhoneNumber() + "\nLocation = "
+                + getLocation();
     }
 }
 

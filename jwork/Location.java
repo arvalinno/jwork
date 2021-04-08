@@ -75,7 +75,8 @@ public class Location
     * method mencetak data yaitu nama provinsi
     * @return void
     */
-    public void printData(){
-        System.out.println(this.province);
+    @Override
+    public String toString() {
+        return "Province = " + getProvince() + "\nCity = " + getCity() + "\nDescription = " + getDescription();
     }
 }
