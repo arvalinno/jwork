@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 
 /**
  * Write a description of class EwalletPayment here.
@@ -14,13 +15,13 @@ public class EwalletPayment extends Invoice
         /**
      * Constructor for objects of class EwalletPayment
      */
-    public EwalletPayment(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
+    public EwalletPayment(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
     {
-        super(id, job, date, jobseeker, invoiceStatus); 
+        super(id, job, jobseeker, invoiceStatus);
     }
 
-    public EwalletPayment(int id, Job job, String date, Jobseeker jobseeker, Bonus bonus, InvoiceStatus invoiceStatus){
-        super(id, job, date, jobseeker, invoiceStatus);
+    public EwalletPayment(int id, Job job, Jobseeker jobseeker, Bonus bonus, InvoiceStatus invoiceStatus){
+        super(id, job, jobseeker, invoiceStatus);
         this.setBonus(bonus);
     }
     
@@ -46,8 +47,21 @@ public class EwalletPayment extends Invoice
         }    
     }
     @Override
-    public void printData() {
-       System.out.println("===================== INVOICE =====================");
+    public String toString() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
+        String date = dateFormat.format(getDate().getTime());
+
+
+        if ((bonus != null) && (bonus.getActive() == true) && (getJob().getFee() > bonus.getMinTotalFee())){
+            return ("===================== INVOICE =====================\n" + "Id = " + getId() + "\nJob = " + getJob().getName() + "\nDate = " + date + "\nJob Seeker = "
+                    + getJobseeker().getName() + "\nReferral Code = " + bonus.getReferralCode() + "\nTotal Fee = " + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE);
+        }else{
+            return ("===================== INVOICE =====================\n" +"Id = " + getId() + "\nJob = " + getJob().getName() + "\nDate = " + date + "\nJob Seeker = "
+                    + getJobseeker().getName()+ "\nTotal Fee = " + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE);
+        }
+    }
+
+        /*System.out.println("===================== INVOICE =====================");
         System.out.println("ID: " + getId());
         System.out.println("Job: " + getJob().getName());
         System.out.println("Date: " + getDate());
@@ -58,6 +72,6 @@ public class EwalletPayment extends Invoice
         setTotalFee();
         System.out.println("Fee: " + getTotalFee());
         System.out.println("Status: " + getInvoiceStatus());
-        System.out.println("Payment Type: " + PAYMENT_TYPE);
-    }
+        System.out.println("Payment Type: " + PAYMENT_TYPE); */
+
 }

@@ -1,3 +1,6 @@
+import java.text.SimpleDateFormat;
+
+import static sun.rmi.registry.RegistryImpl.getID;
 
 /**
  * Write a description of class BankPayment here.
@@ -14,13 +17,13 @@ public class BankPayment extends Invoice
         /**
      * Constructor for objects of class BankPayment
      */
-    public BankPayment(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
+    public BankPayment(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
     {
-        super(id, job, date, jobseeker, invoiceStatus); 
+        super(id, job, jobseeker, invoiceStatus);
     }
 
-    public BankPayment(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus, int adminFee){
-        super(id, job, date, jobseeker, invoiceStatus);
+    public BankPayment(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus, int adminFee){
+        super(id, job, jobseeker, invoiceStatus);
         this.setAdminFee(adminFee);
     }
     
@@ -47,8 +50,19 @@ public class BankPayment extends Invoice
     }
     
     @Override
-    public void printData() {
-       System.out.println("===================== INVOICE =====================");
+    public String toString() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
+        String date = dateFormat.format(getDate().getTime());
+
+        if (adminFee != 0){
+            return ("===================== INVOICE =====================\n" + "Id = " + getId() + "\nJob = " + getJob().getName() + "\nDate = " + date + "\nJob Seeker = "
+                    + getJobseeker().getName() + "\nAdmin Fee = " + adminFee + "\nTotal Fee = " + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE);
+        }else{
+            return ("===================== INVOICE =====================\n" + "Id = " + getId() + "\nJob = " + getJob().getName() + "\nDate = " + date + "\nJob Seeker = "
+                    + getJobseeker().getName()+ "\nTotal Fee = " + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE);
+        }
+
+        /*System.out.println("===================== INVOICE =====================");
         System.out.println("ID: " + getId());
         System.out.println("Job: " + getJob().getName());
         System.out.println("Date: " + getDate());
@@ -57,6 +71,6 @@ public class BankPayment extends Invoice
         setTotalFee();
         System.out.println("Total Fee: " + getTotalFee());
         System.out.println("Status: " + getInvoiceStatus());
-        System.out.println("Payment Type: " + PAYMENT_TYPE);
+        System.out.println("Payment Type: " + PAYMENT_TYPE); */
     }
 }
