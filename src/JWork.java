@@ -21,11 +21,27 @@ public class JWork
      */
     public static void main(String args[]){  
         Location Medan = new Location("Sumatera Utara", "Medan", "tempat lahir");
-        Recruiter recruiter1 = new Recruiter(1, "Arvalinno", "arvalinno@gmail.com", "082288885625", Medan);
+        DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId() + 1, "Arvalinno", "arvalinno@gmail.com", "082288885625", Medan));
+
+        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Arva", "arvalinno@ui.ac.id", "pAssword123", 2021, 03, 6));
+        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Arva", "arvalinno@ui.ac.id", "pAssword123", 2021, 04 ,6));
+        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Ilham", "ilham@ui.ac.id", "m1cheaL23J"));
+
+        System.out.println("\n=====================Jobseeker Database====================\n");
+        System.out.println(DatabaseJobseeker.getDatabaseJobseeker());
+
+        DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, "Data Analyst Jaya Sentosa", DatabaseRecruiter.getRecruiterById(1), 5000000, JobCategory.BackEnd));
+        DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, "Web Developer Jaya Sentosa", DatabaseRecruiter.getRecruiterById(1), 6000000, JobCategory.WebDeveloper));
+        DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, "Web Developer Sinar Abadi", DatabaseRecruiter.getRecruiterById(1), 7000000, JobCategory.WebDeveloper));
+
+        System.out.println("\n=====================Job Database By Category====================\n");
+        System.out.println(DatabaseJob.getJobByCategory(JobCategory.WebDeveloper));
+
+      /*  Recruiter recruiter1 = new Recruiter(1, "Arvalinno", "arvalinno@gmail.com", "082288885625", Medan);
         Job job1 = new Job(1, "Junior Data Analyst", recruiter1, 5000000, JobCategory.DataAnalyst);
         Jobseeker jobseeker1 = new Jobseeker(1, "Tony", ".tony@gmail.com", "password", new GregorianCalendar(2021, 04, 10));
         Jobseeker jobseeker2 = new Jobseeker(2, "William", "william12.wijaya@gmail.com", "pAssword123", 2021, 04, 11);
-        Jobseeker jobseeker3 = new Jobseeker(3, "Micheal", "micheal2hartono@gmail.com", "m1cheaL23J");
+        Jobseeker jobseeker3 = new Jobseeker(3, "Micheal", "micheal2hartono@gmail.com", "m1cheaL23J"); */
 
      //   System.out.println(jobseeker1.toString());
       //  System.out.println(jobseeker2.toString());
@@ -35,7 +51,7 @@ public class JWork
 
         //System.out.println(jobseeker4.toString());
 
-        Bonus bonusA = new Bonus(7, "OOPASIK", 5000000, 4500000, true);
+   /*     Bonus bonusA = new Bonus(7, "OOPASIK", 5000000, 4500000, true);
         Bonus bonusB = new Bonus(8, "ASIKNIH", 7000000, 6500000, true);
 
         EwalletPayment payment1 = new EwalletPayment(1, job1,  jobseeker1, InvoiceStatus.OnGoing);
@@ -55,6 +71,6 @@ public class JWork
         System.out.println(payment2.toString());
         System.out.println(payment3.toString());
         System.out.println(bpayment1.toString());
-        System.out.println(bpayment2.toString());
+        System.out.println(bpayment2.toString()); */
     }
 }
