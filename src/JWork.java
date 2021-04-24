@@ -23,7 +23,7 @@ public class JWork
         Location Medan = new Location("Sumatera Utara", "Medan", "tempat lahir");
         DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId() + 1, "Arvalinno", "arvalinno@gmail.com", "082288885625", Medan));
 
-        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Arva", "arvalinno@ui.ac.id", "pAssword123", 2021, 03, 6));
+     /*   DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Arva", "arvalinno@ui.ac.id", "pAssword123", 2021, 03, 6));
         DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Arva", "arvalinno@ui.ac.id", "pAssword123", 2021, 04 ,6));
         DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Ilham", "ilham@ui.ac.id", "m1cheaL23J"));
 
@@ -35,7 +35,11 @@ public class JWork
         DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, "Web Developer Sinar Abadi", DatabaseRecruiter.getRecruiterById(1), 7000000, JobCategory.WebDeveloper));
 
         System.out.println("\n=====================Job Database By Category====================\n");
-        System.out.println(DatabaseJob.getJobByCategory(JobCategory.WebDeveloper));
+        System.out.println(DatabaseJob.getJobByCategory(JobCategory.WebDeveloper)); */
+
+        DatabaseBonus.addBonus(new Bonus(DatabaseBonus.getLastId()+1, "OKEOC45", 50000, 10000, false));
+        DatabaseBonus.addBonus(new Bonus(DatabaseBonus.getLastId()+1, "OKEOC45", 40000, 10000, true));
+        System.out.println(DatabaseBonus.getBonusDatabase());
 
       /*  Recruiter recruiter1 = new Recruiter(1, "Arvalinno", "arvalinno@gmail.com", "082288885625", Medan);
         Job job1 = new Job(1, "Junior Data Analyst", recruiter1, 5000000, JobCategory.DataAnalyst);
