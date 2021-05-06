@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 /**
@@ -19,27 +20,115 @@ public class JWork
      *
      * @return void
      */
-    public static void main(String args[]){  
+    public static void main(String args[]){
         Location Medan = new Location("Sumatera Utara", "Medan", "tempat lahir");
         DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId() + 1, "Arvalinno", "arvalinno@gmail.com", "082288885625", Medan));
 
-     /*   DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Arva", "arvalinno@ui.ac.id", "pAssword123", 2021, 03, 6));
-        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Arva", "arvalinno@ui.ac.id", "pAssword123", 2021, 04 ,6));
-        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Ilham", "ilham@ui.ac.id", "m1cheaL23J"));
+
+        try {
+            DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Arva", "arvalinno@ui.ac.id", "pAssword123", 2021, 03, 6));
+        } catch (EmailAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Arva11", "arvalinno@ui.ac.id", "pAssword123", 2021, 04 ,6));
+        } catch (EmailAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Ilham", "ilham@ui.ac.id", "m1cheaL23J"));
+        } catch (EmailAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Anton", "Anton@ui.ac.id", "m1cheaL23J111"));
+        } catch (EmailAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
+
+
+        try {
+            DatabaseBonus.addBonus(new Bonus(DatabaseBonus.getLastId()+1, "OKEOC45", 50000, 10000, false));
+        } catch (ReferralCodeAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            DatabaseBonus.addBonus(new Bonus(DatabaseBonus.getLastId()+1, "OKEOC45", 40000, 10000, true));
+        } catch (ReferralCodeAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
+
+
+
+        ArrayList<Job> job1 = new ArrayList<Job>();
+        try {
+            job1.add(new Job(DatabaseJob.getLastId()+1, "Web Developer Sinar Abadi", DatabaseRecruiter.getRecruiterById(1), 15000, JobCategory.WebDeveloper));
+        } catch (RecruiterNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
+        ArrayList<Job> job2 = new ArrayList<Job>();
+        try {
+            job2.add(new Job(DatabaseJob.getLastId()+1, "Data Analyst Jaya Sentosa",  DatabaseRecruiter.getRecruiterById(1), 9000, JobCategory.DataAnalyst));
+        } catch (RecruiterNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            DatabaseJobseeker.removeJobseeker(6);
+        } catch (JobseekerNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            DatabaseRecruiter.removeRecruiter(2);
+        } catch (RecruiterNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            DatabaseJob.getJobById(2);
+        } catch (JobNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            DatabaseBonus.getBonusById(4);
+        } catch (BonusNotFoundException bonusNotFound) {
+            System.out.println(bonusNotFound.getMessage());
+        }
 
         System.out.println("\n=====================Jobseeker Database====================\n");
         System.out.println(DatabaseJobseeker.getDatabaseJobseeker());
 
-        DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, "Data Analyst Jaya Sentosa", DatabaseRecruiter.getRecruiterById(1), 5000000, JobCategory.BackEnd));
+        System.out.println("\n=====================Bonus Database====================\n");
+        System.out.println(DatabaseBonus.getBonusDatabase());
+
+        try {
+            DatabaseInvoice.addInvoice(new EwalletPayment(1, job1, DatabaseJobseeker.getJobseekerById(1)));
+        } catch (JobseekerNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            DatabaseInvoice.addInvoice(new EwalletPayment(2, job2, DatabaseJobseeker.getJobseekerById(2)));
+        } catch (JobseekerNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("\n=========================================\n");
+        for (Invoice invoice : DatabaseInvoice.getInvoiceDatabase()){
+            new Thread(new FeeCalculator(invoice)).start();
+        }
+
+        /*  DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, "Data Analyst Jaya Sentosa", DatabaseRecruiter.getRecruiterById(1), 5000000, JobCategory.BackEnd));
         DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, "Web Developer Jaya Sentosa", DatabaseRecruiter.getRecruiterById(1), 6000000, JobCategory.WebDeveloper));
         DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, "Web Developer Sinar Abadi", DatabaseRecruiter.getRecruiterById(1), 7000000, JobCategory.WebDeveloper));
 
         System.out.println("\n=====================Job Database By Category====================\n");
-        System.out.println(DatabaseJob.getJobByCategory(JobCategory.WebDeveloper)); */
+        System.out.println(DatabaseJob.getJobByCategory(JobCategory.WebDeveloper));
 
-        DatabaseBonus.addBonus(new Bonus(DatabaseBonus.getLastId()+1, "OKEOC45", 50000, 10000, false));
-        DatabaseBonus.addBonus(new Bonus(DatabaseBonus.getLastId()+1, "OKEOC45", 40000, 10000, true));
-        System.out.println(DatabaseBonus.getBonusDatabase());
+        */
+
+        //    BankPayment payment1 = new BankPayment(1, job1, DatabaseJobseeker.getJobseekerById(1), InvoiceStatus.Finished, 0);
+    //    BankPayment payment2 = new BankPayment(2, job2, DatabaseJobseeker.getJobseekerById(1), InvoiceStatus.Finished, 12);
 
       /*  Recruiter recruiter1 = new Recruiter(1, "Arvalinno", "arvalinno@gmail.com", "082288885625", Medan);
         Job job1 = new Job(1, "Junior Data Analyst", recruiter1, 5000000, JobCategory.DataAnalyst);

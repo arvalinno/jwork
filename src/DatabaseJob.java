@@ -23,12 +23,15 @@ public class DatabaseJob {
      * method mendapatkan job
      * @return Job
      */
-    public static Job getJobById(int id){
+    public static Job getJobById(int id) throws JobNotFoundException{
         Job y = null;
         for (int i = 0; i < JOB_DATABASE.size(); i++) {
             if (id == JOB_DATABASE.get(i).getId()) {
                 y = JOB_DATABASE.get(i);
             }
+        }
+        if (y == null){
+            throw new JobNotFoundException(id);
         }
         return y;
     }
@@ -68,17 +71,23 @@ public class DatabaseJob {
     
     /**
      * method menghapus job
-     * @param job
+     * @param id
      * @return boolean
      */
-    public static boolean removeJob(Job job){
+    public static boolean removeJob(int id) throws JobNotFoundException{
+        boolean status = false;
+
         for (Job jobA : JOB_DATABASE) {
-            if (job.getId() == jobA.getId()) {
-                JOB_DATABASE.remove(job);
-                return true;
+            if (jobA.getId() == id) {
+                JOB_DATABASE.remove(jobA);
+                status = true;
+                break;
             }
         }
-        return false;
+        if (!status){
+            throw new JobNotFoundException(id);
+        }
+        return status;
     }
 }
 
