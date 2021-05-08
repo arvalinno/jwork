@@ -7,7 +7,7 @@ import java.util.GregorianCalendar;
  * @author Arvalinno
  * @version 23.03.2021
  */
-public class JWork
+public class JWork extends Thread
 {   
     /**
     * constructor kelas JWork
@@ -20,11 +20,11 @@ public class JWork
      *
      * @return void
      */
-    public static void main(String args[]){
+    public static void main(String args[]) {
         Location Medan = new Location("Sumatera Utara", "Medan", "tempat lahir");
         DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId() + 1, "Arvalinno", "arvalinno@gmail.com", "082288885625", Medan));
 
-
+    /*
         try {
             DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Arva", "arvalinno@ui.ac.id", "pAssword123", 2021, 03, 6));
         } catch (EmailAlreadyExistsException e) {
@@ -100,17 +100,31 @@ public class JWork
 
         System.out.println("\n=====================Bonus Database====================\n");
         System.out.println(DatabaseBonus.getBonusDatabase());
+        
 
+     */
         try {
             DatabaseInvoice.addInvoice(new EwalletPayment(1, job1, DatabaseJobseeker.getJobseekerById(1)));
-        } catch (JobseekerNotFoundException e) {
+        } catch (JobseekerNotFoundException | OnGoingInvoiceAlreadyExistsException e) {
             e.printStackTrace();
         }
 
         try {
-            DatabaseInvoice.addInvoice(new EwalletPayment(2, job2, DatabaseJobseeker.getJobseekerById(2)));
-        } catch (JobseekerNotFoundException e) {
+            DatabaseInvoice.addInvoice(new EwalletPayment(2, job2, DatabaseJobseeker.getJobseekerById(1)));
+        } catch (JobseekerNotFoundException | OnGoingInvoiceAlreadyExistsException e) {
             e.printStackTrace();
+        }
+
+        try {
+            DatabaseInvoice.addInvoice(new EwalletPayment(1, job1, DatabaseJobseeker.getJobseekerById(1)));
+        } catch (JobseekerNotFoundException | OnGoingInvoiceAlreadyExistsException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            DatabaseInvoice.getInvoiceById(4);
+        } catch (InvoiceNotFoundException invoiceNotFound) {
+            System.out.println(invoiceNotFound.getMessage());
         }
 
         System.out.println("\n=========================================\n");
