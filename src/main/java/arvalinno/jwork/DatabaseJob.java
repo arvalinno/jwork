@@ -38,16 +38,18 @@ public class DatabaseJob {
         return y;
     }
 
-    public static ArrayList<Job> getJobByRecruiter(int recruiterId){
-        ArrayList<Job> jobA = new ArrayList<Job>();
-        for (Job job : JOB_DATABASE) {
-            if (recruiterId == job.getRecruiter().getId()) {
-                jobA.add(job);
-            } else {
-                return null;
+    public static ArrayList<Job> getJobByRecruiter(int recruiterId) {
+        ArrayList<Job> result = null;
+
+        for (Job jobA : JOB_DATABASE) {
+            if (jobA.getRecruiter().getId() == recruiterId) {
+                if (result == null) {
+                    result = new ArrayList<Job>();
+                }
+                result.add(jobA);
             }
         }
-        return jobA;
+        return result;
     }
 
     public static ArrayList<Job> getJobByCategory(JobCategory category){
