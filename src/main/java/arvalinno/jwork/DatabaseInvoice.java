@@ -29,7 +29,7 @@ public class DatabaseInvoice {
         return invoiceA;
     }
 
-    public static ArrayList<Invoice> getJobByJobseeker(int jobseekerId) {
+    public static ArrayList<Invoice> getInvoiceByJobseeker(int jobseekerId) {
         ArrayList<Invoice> invoiceA = new ArrayList<Invoice>();
         for (int i = 0; i < INVOICE_DATABASE.size(); i++) {
             if (jobseekerId == INVOICE_DATABASE.get(i).getJobseeker().getId()) {
