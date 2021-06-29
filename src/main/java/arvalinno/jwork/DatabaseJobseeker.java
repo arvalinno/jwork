@@ -26,8 +26,8 @@ public class DatabaseJobseeker
      * @return boolean
      */
     public static boolean addJobseeker(Jobseeker jobseeker) throws EmailAlreadyExistsException {
-        for (Jobseeker element : JOBSEEKER_DATABASE) {
-            if (element.getEmail() == jobseeker.getEmail()) {
+        for (Jobseeker jobseeker1 : JOBSEEKER_DATABASE) {
+            if (jobseeker1.getEmail().equals(jobseeker.getEmail())) {
                 throw new EmailAlreadyExistsException(jobseeker);
             }
         }
@@ -42,14 +42,13 @@ public class DatabaseJobseeker
      * @return boolean
      */
     public static boolean removeJobseeker(int id) throws JobseekerNotFoundException {
-
-            for (Jobseeker jobseeker : JOBSEEKER_DATABASE) {
-                if (jobseeker.getId() == id) {
-                    JOBSEEKER_DATABASE.remove(jobseeker);
-                    return true;
-                }
+        for (Jobseeker jobseeker : JOBSEEKER_DATABASE) {
+            if (jobseeker.getId() == id) {
+                JOBSEEKER_DATABASE.remove(jobseeker.getId());
+                return true;
             }
-            throw new JobseekerNotFoundException(id);
+        }
+        throw new JobseekerNotFoundException(id);
     }
     
     /**
@@ -57,19 +56,17 @@ public class DatabaseJobseeker
      * @return null
      */
     public static Jobseeker getJobseekerById(int id) throws JobseekerNotFoundException {
-        Jobseeker JobseekerA = null;
-
-        for (int i = 0; i < JOBSEEKER_DATABASE.size(); i++) {
-            if (id == JOBSEEKER_DATABASE.get(i).getId()) {
-                JobseekerA = JOBSEEKER_DATABASE.get(i);
-                return JobseekerA;
+        Jobseeker temp = null;
+        for (Jobseeker jobseeker : JOBSEEKER_DATABASE) {
+            if (id == jobseeker.getId()) {
+                temp = jobseeker;
+                return temp;
             }
         }
         throw new JobseekerNotFoundException(id);
-
     }
 
-    public static Jobseeker jobseekerLogin (String email, String password) {
+    public static Jobseeker getJobseekerLogin(String email, String password){
         for (Jobseeker jobseeker : JOBSEEKER_DATABASE) {
             if (jobseeker.getEmail().equals(email) && jobseeker.getPassword().equals(password)) {
                 return jobseeker;
